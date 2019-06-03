@@ -14,8 +14,8 @@ public class StudentController {
     StudentService studentService;
 
     @PostMapping("/saveStudent")
-    public void saveStudent(@RequestParam DatabaseTypeEnum databaseTypeEnum) throws InstantiationException, IllegalAccessException {
-        Student student = new Student();
+    public void saveStudent(@RequestBody Student student, @RequestParam DatabaseTypeEnum databaseTypeEnum)
+            throws InstantiationException, IllegalAccessException {
         studentService.save(student, databaseTypeEnum);
     }
 }
